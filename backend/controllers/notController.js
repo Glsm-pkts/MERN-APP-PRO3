@@ -1,7 +1,7 @@
 const NotModel = require("../models/notModels")
 
 const mongoose = require('mongoose');
-
+//POST
 const notOluştur = async (req,res) => {
     const {baslik, aciklama} = req.body;
 
@@ -12,7 +12,7 @@ res.status(200).json(not)
 res.status(400).json({hata:error.message})
     }
 }
-
+//GET
 const notlarGetir = async (req, res) => {
     const notlar = await NotModel.find().sort({
         createdAt: -1 // en yeni olanları ilk göster
@@ -20,6 +20,8 @@ const notlarGetir = async (req, res) => {
 
     res.status(200).json(notlar)
 }
+//GET by ID
+// Notları ID ile getirme
 
 const notGetir = async (req, res) => {
     const { id } = req.params;
@@ -32,9 +34,10 @@ const notGetir = async (req, res) => {
         return res.status(404).json({ hata: 'Not bulunamadı' });
     }
     res.status(200).json(not);
+
 };
 
-
+//DELETE
 const notSil = async (req, res) => {
     const{id} =req.params
     if(!mongoose.Types.ObjectId.isValid(id)) {
@@ -48,6 +51,7 @@ const notSil = async (req, res) => {
     res.status(200).json(not)
 }
 
+//PATCH
 const notGuncelle = async (req, res) => {
     const{id} =req.params
     if(!mongoose.Types.ObjectId.isValid(id)) {
@@ -62,10 +66,6 @@ const notGuncelle = async (req, res) => {
     }
     res.status(200).json(not)
 }
-
-
-
-
 module.exports={
     notOluştur, notlarGetir, notGetir, notSil, notGuncelle
 }
