@@ -19,10 +19,9 @@ Bu proje, kullanıcıların notlarını başlık ve açıklama şeklinde ekleyeb
 - Nodemon  
 
 ### Frontend
-
 - React  
 - React Router  
 - React Scripts  
 
-
+## GİF
 ![](./public/ZightRecording2025-06-18at12.38.24AM-ezgif.com-optimize%20(2).gif)
